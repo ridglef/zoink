@@ -1,5 +1,6 @@
 plugins {
     id 'java-gradle-plugin'
+    id 'maven-publish'
 }
 
 repositories {
@@ -12,13 +13,18 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.ow2.asm/asm-tree
     implementation 'org.ow2.asm:asm-tree:9.6'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.0.1'
 }
 
 gradlePlugin {
     plugins {
         zoink {
-            id = 'com.github.zoink'
-            implementationClass = 'com.github.zoink.ZoinkPlugin'
+            group = "com.github.ridglef"
+            id = 'zoink'
+            version = "1.0.0"
+            implementationClass = 'com.github.ridglef.zoink.ZoinkPlugin'
         }
     }
 }
