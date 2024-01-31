@@ -1,12 +1,12 @@
 package com.github.ridglef.zoink;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.github.ridglef.zoink.transformers.*;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.tasks.bundling.Jar;
-import org.gradle.internal.impldep.com.fasterxml.jackson.databind.ObjectMapper;
-import org.gradle.internal.impldep.com.fasterxml.jackson.databind.ObjectWriter;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
