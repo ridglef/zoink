@@ -1,5 +1,6 @@
 package com.github.ridglef.zoink;
 
+import com.github.ridglef.zoink.transformers.*;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.JavaPlugin;
@@ -56,6 +57,10 @@ public class ZoinkPlugin implements Plugin<Project> {
                     }
                 }
             }
+            List<ClassTransformer> transformers = List.of(new LineNumberTransformer(), new LocalVariableTransformer(), new NopTransformer(), new ParameterTransformer(), new SourceDebugTransformer(), new SourceFileTransformer());
+            classes.forEach(classNode -> {
+                transformers.forEach(classTransformer -> classTransformer.transformClass(classNode));
+            });
 
             zipOutputStream.setLevel(Deflater.BEST_COMPRESSION);
 
